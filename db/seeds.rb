@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Status.destroy_all
-puts "Statuses destroyes"
+puts "Statuses destroyed"
 Event.destroy_all
-puts "Statuses destroyes"
+puts "Events destroyed"
 Comment.destroy_all
-puts "Statuses destroyes"
+puts "Comments destroyed"
 User.destroy_all
-puts "User destroyed"
+puts "Users destroyed"
 
 user = User.create!(email: 'email@email.com', username: 'wow', password: '123456789012', password_confirmation: '123456789012')
 user2 = User.create!(email: 'email2@email.com', username: 'wow2', password: '123456789012', password_confirmation: '123456789012')
