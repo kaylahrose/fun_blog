@@ -1,0 +1,5 @@
+<%= form_with url: "/users/#{@user.id}/statuses", method: :post do |form| %>
+  <%= form.label :content, "What's on your mind?" %>
+  <%= form.text_field :content %>
+  <%= form.submit "Submit" %>
+<% end %>

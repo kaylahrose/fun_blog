@@ -10,20 +10,21 @@ RSpec.describe 'new status page' do
     it 'creates a new status with valid parameters passed' do
       user = User.create( email: 'email@email.com', username: "user", password: '1234', password_confirmation: '1234')
 
-      visit user_status_path(user)
+      visit new_user_status_path(user)
 
-      expect(current_path).to eq(user_status_path(user))
-      expect(page).to have_content("Submit")
+      expect(current_path).to eq(new_user_status_path(user))
+      save_and_open_page
 
-      fill_in 'Text_field', with: 'Im hungry'
+      fill_in 'content', with: 'Im hungry'
       click_button 'Submit'
-
-      expect(current_path).to eq("users/#{user.id}")
-      # TODO: beef up tests with within block
-      expect(page).to have_content("Im hungry")
 
       new_status = user.statuses.last
       expect(new_status.content).to eq("Im hungry")
+      
+      expect(current_path).to eq("/users/#{user.id}")
+      # TODO: beef up tests with within block
+      expect(page).to have_content("Im hungry")
+
     end 
   end
 end
